@@ -1,5 +1,5 @@
 """
-deftools.data :: Deft Data Wrangling
+deftools :: Deft Data Wrangling
 """
 
 # ====== Imports ====== #
