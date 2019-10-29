@@ -8,7 +8,33 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 
-# ====== FuncZone ====== #
+# ====== Code ====== #
+class DeftString:
+    """
+    A general class for string manipulation and functions.
+    """
+
+    def __init__(self, string):
+        self.string = string
+
+    def caps_ratio(self):
+        """
+        Calculates the ratio of capital to lowercase letters in a given string.
+        """
+        cap = sum(1 for l in self.string if l.isupper())
+        total = len(self.string)
+        return round(cap / total, 6)
+
+
+class DeftPlot:
+    """
+    A general glass for generating plots from Pandas DataFrames.
+    """
+
+    def __init__(self, df):
+        self.df = df
+
+
 def random_dataframe(pool, shape, columns):
     """
     Creates a DataFrame of random integers.
@@ -21,7 +47,9 @@ def random_dataframe(pool, shape, columns):
     columns (list): names of the columns in the generated DataFrame.
     # ============ #
     """
-    return pd.DataFrame(np.random.randint(pool[0], pool[1], size=shape), columns=columns)
+    return pd.DataFrame(
+        np.random.randint(pool[0], pool[1], size=shape), columns=columns
+    )
 
 
 def data_split(df, test_size=0.2, stratify=None):
@@ -53,8 +81,8 @@ def date_wrangler(df, date_col):
 
     # Split column into datetime components
     df[f"{date_col}_year"] = df[date_col].dt.year
-    df[f"{date_col}_year"] = df[date_col].dt.year
-    df[f"{date_col}_year"] = df[date_col].dt.year
+    df[f"{date_col}_year"] = df[date_col].dt.month
+    df[f"{date_col}_year"] = df[date_col].dt.day
 
     # Drop original column
     df = df.drop(columns=date_col)

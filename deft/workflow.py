@@ -6,10 +6,8 @@ deftools.workflow :: Deft Workflow Configuration
 import pandas as pd
 import numpy as np
 
+
 # ====== Code ====== #
-
-
-# ====== FuncZone ====== #
 
 
 def max_columns(num_cols: int) -> None:
