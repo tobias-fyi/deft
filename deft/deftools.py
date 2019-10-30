@@ -52,39 +52,51 @@ def random_dataframe(pool, shape, columns):
     )
 
 
-def data_split(df, test_size=0.2, stratify=None):
-    """
-    Splits up a DataFrame into train and test sets.
+class DeftDf(pd.Dataframe):
+    """A class for manipulating dataframes."""
 
-    # ============ #
-    df (pd.DataFrame): data to be split.
-    stratify (pd.Series): target column or Series to use for stratification.
-    # ============ #
-    """
-    return train_test_split(df, test_size=test_size, random_state=42, stratify=stratify)
+    # TODO: figure out how to use .super() effectively
+    # def __init__(self, df):
+    #     self.df = df
 
+    def data_split(self, test_size=0.2, stratify=None):
+        """
+        Splits up a DataFrame into train and test sets.
 
-def date_wrangler(df, date_col):
-    """
-    Converts date_col to Pandas datetime and splits it up into year, month, day components.
-    Returns a copy of the original DataFrame with the components and without the original column.
+        # ============ #
+        df (pd.DataFrame): data to be split.
+        stratify (pd.Series): target column or Series to use for stratification.
+        # ============ #
+        """
+        return train_test_split(
+            self, test_size=test_size, random_state=42, stratify=stratify
+        )
 
-    # ============ #
-    df (pd.DataFrame): DataFrame containing the column to be wrangled.
-    date_col (string): name of column to be converted and split.
-    # ============ #
-    """
-    df = df.copy()  # Create a copy of the DataFrame
+    def date_wrangler(self, date_col):
+        """
+        Converts date_col to Pandas datetime and 
+        splits it up into year, month, day components.
+        Returns a copy of the original DataFrame 
+        with the components and without the original column.
 
-    # Convert target column to datetime
-    df[date_col] = pd.to_datetime(df[date_col], infer_datetime_format=True)
+        # ============ #
+        df (pd.DataFrame): DataFrame containing the column to be wrangled.
+        date_col (string): name of column to be converted and split.
+        # ============ #
+        """
+        data = self.copy()  # Create a copy of the DataFrame
 
-    # Split column into datetime components
-    df[f"{date_col}_year"] = df[date_col].dt.year
-    df[f"{date_col}_year"] = df[date_col].dt.month
-    df[f"{date_col}_year"] = df[date_col].dt.day
+        # Convert target column to datetime
+        data[date_col] = pd.to_datetime(
+            data[date_col], infer_datetime_format=True
+        )
 
-    # Drop original column
-    df = df.drop(columns=date_col)
+        # Split column into datetime components
+        data[f"{date_col}_year"] = data[date_col].dt.year
+        data[f"{date_col}_year"] = data[date_col].dt.month
+        data[f"{date_col}_year"] = data[date_col].dt.day
 
-    return df
+        # Drop original column
+        data = data.drop(columns=date_col)
+
+        return data

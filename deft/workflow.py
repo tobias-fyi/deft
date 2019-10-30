@@ -8,8 +8,6 @@ import numpy as np
 
 
 # ====== Code ====== #
-
-
 def max_columns(num_cols: int) -> None:
     """Shortcut for pd.set_option.display.max_columns."""
     pd.set_option("display.max_columns", num_cols)
