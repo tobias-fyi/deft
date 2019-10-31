@@ -15,7 +15,7 @@ REQUIRED = ["numpy", "pandas", "scikit-learn"]
 # This call to setup() does all the work
 setuptools.setup(
     name="deft",
-    version="1.0.2",
+    version="1.0.5",
     description="A set of simple tools to increase data deftness.",
     long_description=README,
     long_description_content_type="text/markdown",

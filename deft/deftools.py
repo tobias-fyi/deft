@@ -52,12 +52,12 @@ def random_dataframe(pool, shape, columns):
     )
 
 
-class DeftDf(pd.Dataframe):
+class DeftDf:
     """A class for manipulating dataframes."""
 
     # TODO: figure out how to use .super() effectively
-    # def __init__(self, df):
-    #     self.df = df
+    def __init__(self, df):
+        self.df = df
 
     def data_split(self, test_size=0.2, stratify=None):
         """

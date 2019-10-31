@@ -1,5 +1,5 @@
 # ====== Project-Specific ====== #
-
+dist/
 
 # Misc
 node_modules/
