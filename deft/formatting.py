@@ -3,7 +3,26 @@ deft.format :: Deft Formatting
 """
 
 
-# ========= FuncZone ========= #
+def table_printer(array, title, left_width, right_width):
+    """
+    Formats list - table of contents style.
+    
+    Parameters
+    ----------
+    array : dictionary
+        Dictionary to be printed as table.
+    title : string
+        Title of the table; appears at top.
+    left_width : integer
+        Width, in characters, of the left column.
+    right_width : integer
+        Width, in characters, of the right column.
+    """
+
+    print(f"{title}".center(left_width + right_width, "-"))
+
+    for k, v in array.items():
+        print(str(k).ljust(left_width, ".") + str(v).rjust(right_width, "."))
 
 
 def justify_center(content: str, width: int, symbol: str) -> str:
