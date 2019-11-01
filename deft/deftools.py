@@ -21,6 +21,7 @@ class DeftString:
         """
         Calculates the ratio of capital to lowercase letters in a given string.
         """
+
         cap = sum(1 for l in self.string if l.isupper())
         total = len(self.string)
         return round(cap / total, 6)
@@ -33,23 +34,6 @@ class DeftPlot:
 
     def __init__(self, df):
         self.df = df
-
-
-def random_dataframe(pool, shape, columns):
-    """
-    Creates a DataFrame of random integers.
-
-    # ============ #
-    pool (tuple): define the range of numbers (min, max) from which to draw.
-        ex: (0, 100) - pick numbers between 0 and 100.
-    shape (tuple): define the shape of the generated DataFrame. 
-        ex: (100, 4) - 100 rows, 4 columns.
-    columns (list): names of the columns in the generated DataFrame.
-    # ============ #
-    """
-    return pd.DataFrame(
-        np.random.randint(pool[0], pool[1], size=shape), columns=columns
-    )
 
 
 class DeftDf:
@@ -100,3 +84,21 @@ class DeftDf:
         data = data.drop(columns=date_col)
 
         return data
+
+
+def random_dataframe(pool, shape, columns):
+    """
+    Creates a DataFrame of random integers.
+
+    # ============ #
+    pool (tuple): define the range of numbers (min, max) from which to draw.
+        ex: (0, 100) - pick numbers between 0 and 100.
+    shape (tuple): define the shape of the generated DataFrame. 
+        ex: (100, 4) - 100 rows, 4 columns.
+    columns (list): names of the columns in the generated DataFrame.
+    # ============ #
+    """
+    return pd.DataFrame(
+        np.random.randint(pool[0], pool[1], size=shape), columns=columns
+    )
+
