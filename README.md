@@ -10,8 +10,12 @@ deft
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. 
+- [Deft](#deft)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contribution](#contribution)
 
 ## Introduction
 
@@ -52,3 +56,11 @@ To add, fix, or improve the code:
 5. Create a GitHub pull request
 6. I will review and get in touch as needed
 
+---
+
+- [Deft](#deft)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contribution](#contribution)
